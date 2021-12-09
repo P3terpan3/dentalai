@@ -1,8 +1,6 @@
 from PIL import Image
 import numpy as np
-
-import matplotlib.pyplot as plt
-import time
+import cv2
 from statistics import mean
 
 
@@ -35,3 +33,12 @@ def grayscale(img):
     iar = threshold(iar)
 
     return iar
+
+
+def pil2cv2(img):
+    cv2Img = np.array(img)
+    cv2Img = cv2Img[:, :, ::-1].copy()
+    # convert the image back into uint8
+    finImg = cv2.convertScaleAbs(cv2Img)
+
+    return finImg
