@@ -15,6 +15,7 @@ while True:
     # 1. Object Detection
     mask = grayscale(frame)
     mask = pil2cv2(mask)
+    mask = cv2.imread("mask.png")
     contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     detections = []
     for cnt in contours:
